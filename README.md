@@ -6,7 +6,7 @@ Tady je upravená, čistší a lépe znějící verze, bez přidávání nových
 
 ---
 
-**Autoři:** Ondřej Kondom, Jiří Eidaman
+**Autoři:** Ondřej Bonder, Jiří Edelmann
 **Engine:** Godot
 
 ### O čem to je?
