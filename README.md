@@ -37,5 +37,5 @@ HadaMackas je svižná 2D multiplayerová hra, ve které hráč ovládá hada po
 ### Ostatní dokumentace
 
 ---
-
-* Již brzy
+- https://github.com/DEPSTRCZ/HadaMackas/blob/main/01_zakl_konc.md
+- https://github.com/DEPSTRCZ/HadaMackas/blob/main/2.game_design.md
