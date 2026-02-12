@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://x8dltlo3ol3k"]
+
+[ext_resource type="Script" uid="uid://decvxtrk78lpv" path="res://snake.gd" id="1_olj5u"]
+[ext_resource type="Script" uid="uid://m15nubc8j7lm" path="res://head.gd" id="2_2x2sd"]
+[ext_resource type="Texture2D" uid="uid://t15l01jitoum" path="res://gutanorang.jpg" id="2_dw1s1"]
+[ext_resource type="PackedScene" uid="uid://6q3xwf85i8ha" path="res://body_part.tscn" id="2_olj5u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
+resource_local_to_scene = true
+resource_name = "negr"
+radius = 62.38
+
+[node name="Snake" type="Node2D" unique_id=1711022433]
+script = ExtResource("1_olj5u")
+body_part_scene = ExtResource("2_olj5u")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1342920846]
+script = ExtResource("2_2x2sd")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=239886041]
+position = Vector2(1, -2)
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1410969297]
+z_index = 1
+position = Vector2(3.8146973e-06, -7.6293945e-06)
+scale = Vector2(0.046568636, 0.04411764)
+texture = ExtResource("2_dw1s1")
+
+[node name="head" type="CollisionShape2D" parent="CharacterBody2D" unique_id=856857983]
+position = Vector2(1, -2)
+shape = SubResource("CircleShape2D_ryrav")
+debug_color = Color(0, 0.6, 0.69803923, 1)

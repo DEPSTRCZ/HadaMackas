@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bhwjsxcuokfl2"]
+
+[ext_resource type="Texture2D" uid="uid://b5dthhuvgmntk" path="res://background.jpg" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://x8dltlo3ol3k" path="res://snake.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node2D" unique_id=848821030]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=675938623]
+z_index = -1
+texture = ExtResource("1_ig7tw")
+
+[node name="Snake" parent="." unique_id=1711022433 instance=ExtResource("2_0xm2m")]
+z_index = 1

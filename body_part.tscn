@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://6q3xwf85i8ha"]
+
+[ext_resource type="Script" uid="uid://c4rvnno4ejv3a" path="res://part.gd" id="1_n6fsy"]
+[ext_resource type="Texture2D" uid="uid://dm1y2ohfm6a5x" path="res://orangutan.jpeg" id="2_o7njo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ion4w"]
+resource_local_to_scene = true
+resource_name = "negr"
+radius = 62.38
+
+[node name="BodyPart" type="Node2D" unique_id=1827561239]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1116007832]
+
+[node name="part" type="CollisionShape2D" parent="Area2D" unique_id=740243298]
+shape = SubResource("CircleShape2D_ion4w")
+debug_color = Color(0, 0.6, 0.69803923, 1)
+script = ExtResource("1_n6fsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D/part" unique_id=1361003027]
+scale = Vector2(0.4422222, 0.42444444)
+texture = ExtResource("2_o7njo")
