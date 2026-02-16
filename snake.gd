@@ -41,22 +41,22 @@ func add_body_part():
 	var new_part = body_part_scene.instantiate()
 	add_child(new_part)
 	
-	# Position new part at the end of the snake
-	if body_parts.is_empty():
-		print("emptyyy")
-		# First body part - place behind head
-		new_part.global_position = head.position
-	else:
-		# Place behind last body part
-		new_part.global_position = body_parts[-1].global_position
+	# Position new part right behind the head
+	var history_index = int(body_spacing)
 	
-	body_parts.append(new_part)
+	if history_index < position_history.size():
+		new_part.global_position = position_history[history_index]
+	else:
+		new_part.global_position = head.global_position
+	
+	# Insert at the FRONT of the array (closest to head)
+	body_parts.push_front(new_part)
 
 func update_body_parts():
 	for i in range(body_parts.size()):
+		# Each part follows the position spacing from the head
 		var history_index = int((i + 1) * body_spacing)
 		
 		if history_index < position_history.size():
-			# Smooth interpolation instead of instant positioning
-			var target_pos = position_history[history_index]
-			body_parts[i].global_position = body_parts[i].global_position.lerp(target_pos, 0.2)
+			# Direct positioning - no lerp, no stutter
+			body_parts[i].global_position = position_history[history_index]
