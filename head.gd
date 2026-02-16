@@ -5,6 +5,8 @@ var screen_size
 var center_screen
 var dir
 var head
+var current_direction = Vector2.RIGHT
+var turn_speed = 4.5
 
 
 # Create a reference to the part scene
@@ -17,17 +19,19 @@ func _ready():
 	print(head)
 	#self.name = "head"
 	
-func _process(_delta):
-	dir = ((center_screen-get_viewport().get_mouse_position())/center_screen).normalized()
-	#print(self.position)
-	self.velocity = -dir * speed
-	#head.rotation = atan2(dir[1],dir[0])-PI-90
-	var rotated_vector = dir.rotated(deg_to_rad(-90))
-
+func _process(delta):
+	# Calculate target direction
+	var target_dir = ((center_screen - get_viewport().get_mouse_position()) / center_screen).normalized()
+	
+	# Smoothly interpolate current direction toward target
+	current_direction = current_direction.lerp(-target_dir, turn_speed * delta).normalized()
+	
+	# Use the smoothed direction for movement
+	self.velocity = current_direction * speed
+	
+	# Rotate head to match current direction
+	var rotated_vector = current_direction.rotated(deg_to_rad(90))
 	head.rotation_degrees = rad_to_deg(atan2(rotated_vector[1], rotated_vector[0]))
-
-		 
-	#print(get_viewport().get_mouse_position())
 	
 	move_and_slide()
 		

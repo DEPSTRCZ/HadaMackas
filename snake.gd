@@ -59,4 +59,4 @@ func update_body_parts():
 		
 		if history_index < position_history.size():
 			# Direct positioning - no lerp, no stutter
-			body_parts[i].global_position = position_history[history_index]
+			body_parts[i].global_position = position_history[history_index]	
