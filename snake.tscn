@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://decvxtrk78lpv" path="res://snake.gd" id="1_olj5u"]
 [ext_resource type="Script" uid="uid://m15nubc8j7lm" path="res://head.gd" id="2_2x2sd"]
-[ext_resource type="Texture2D" uid="uid://t15l01jitoum" path="res://gutanorang.jpg" id="2_dw1s1"]
 [ext_resource type="PackedScene" uid="uid://6q3xwf85i8ha" path="res://body_part.tscn" id="2_olj5u"]
+[ext_resource type="Texture2D" uid="uid://c6sfxfqm8w78j" path="res://Assets/Snake/head.png" id="4_olj5u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
 resource_local_to_scene = true
@@ -22,9 +22,10 @@ position = Vector2(1, -2)
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1410969297]
 z_index = 1
-position = Vector2(3.8146973e-06, -7.6293945e-06)
-scale = Vector2(0.046568636, 0.04411764)
-texture = ExtResource("2_dw1s1")
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(3.6795344, 3.4858735)
+texture = ExtResource("4_olj5u")
 
 [node name="head" type="CollisionShape2D" parent="CharacterBody2D" unique_id=856857983]
 position = Vector2(1, -2)

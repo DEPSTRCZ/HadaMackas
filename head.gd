@@ -4,6 +4,7 @@ extends CharacterBody2D
 var screen_size
 var center_screen
 var dir
+var head
 
 
 # Create a reference to the part scene
@@ -12,12 +13,19 @@ var dir
 func _ready():
 	screen_size = get_viewport_rect().size
 	center_screen = screen_size/2
+	head = get_child(1)
+	print(head)
 	#self.name = "head"
 	
 func _process(_delta):
 	dir = ((center_screen-get_viewport().get_mouse_position())/center_screen).normalized()
 	#print(self.position)
 	self.velocity = -dir * speed
+	#head.rotation = atan2(dir[1],dir[0])-PI-90
+	var rotated_vector = dir.rotated(deg_to_rad(-90))
+
+	head.rotation_degrees = rad_to_deg(atan2(rotated_vector[1], rotated_vector[0]))
+
 		 
 	#print(get_viewport().get_mouse_position())
 	

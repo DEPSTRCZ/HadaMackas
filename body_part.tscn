@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6q3xwf85i8ha"]
 
 [ext_resource type="Script" uid="uid://c4rvnno4ejv3a" path="res://part.gd" id="1_n6fsy"]
-[ext_resource type="Texture2D" uid="uid://dm1y2ohfm6a5x" path="res://orangutan.jpeg" id="2_o7njo"]
+[ext_resource type="Texture2D" uid="uid://b3hvlxqd81n3x" path="res://Assets/Snake/body.png" id="2_n6fsy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ion4w"]
 resource_local_to_scene = true
@@ -18,5 +18,6 @@ debug_color = Color(0, 0.6, 0.69803923, 1)
 script = ExtResource("1_n6fsy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D/part" unique_id=1361003027]
-scale = Vector2(0.4422222, 0.42444444)
-texture = ExtResource("2_o7njo")
+texture_filter = 1
+scale = Vector2(3.634, 3.486)
+texture = ExtResource("2_n6fsy")
