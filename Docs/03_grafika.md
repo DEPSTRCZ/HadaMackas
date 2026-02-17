@@ -14,4 +14,4 @@ Sprite XP orbu:
 ![Sprite XP](https://github.com/DEPSTRCZ/HadaMackas/blob/main/XP%20sprite.png "XP")
 
 Textura pozadí:
-![Textura pozadí](https://github.com/DEPSTRCZ/HadaMackas/blob/main/ "pozadí")
+![Textura pozadí](https://github.com/DEPSTRCZ/HadaMackas/blob/main/Assets/snake_floor.png "pozadí")
