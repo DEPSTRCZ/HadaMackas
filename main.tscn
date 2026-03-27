@@ -1,13 +1,24 @@
 [gd_scene format=3 uid="uid://bhwjsxcuokfl2"]
 
-[ext_resource type="Texture2D" uid="uid://b5dthhuvgmntk" path="res://Assets/background.jpg" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://0713nhueyk77" path="res://Assets/snake_floor_scaled_8x.png" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://x8dltlo3ol3k" path="res://snake.tscn" id="2_0xm2m"]
 
 [node name="Main" type="Node2D" unique_id=848821030]
 
-[node name="Background" type="Sprite2D" parent="." unique_id=675938623]
-z_index = -1
-texture = ExtResource("1_ig7tw")
+[node name="TextureRect" type="TextureRect" parent="." unique_id=777875542]
+texture_repeat = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2578.0
+offset_top = -1326.0
+offset_right = 1870.0
+offset_bottom = 1135.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_0xm2m")
+stretch_mode = 1
+flip_h = true
 
 [node name="Snake" parent="." unique_id=1711022433 instance=ExtResource("2_0xm2m")]
 z_index = 1
