@@ -52,7 +52,7 @@ func _process(delta):
 			die()
 
 func die():
-	$AudioStreamPlayer2D.play()
+	$DeathPlayer.play()
 	
 	
 	if is_dead:
@@ -70,10 +70,12 @@ func die():
 	set_process(false)
 		
 func add_xp(amount):
+	$ConsumePlayer.play()
 	xp += amount
 	Global.score += amount
 	
 	if (xp >= Global.max_orbs_xp):
+		$BodyExpansionPlayer.play()
 		snake_head.add_body_part()
 		xp -= Global.max_orbs_xp
 	
