@@ -1,5 +1,7 @@
 extends Node2D
 
+const ColoredSprite = preload("res://colored_orb.tscn")
+
 func _ready():
 	fill_tilemap_circular()
 	create_border_wall()
@@ -9,7 +11,13 @@ func _ready():
 	print("Tile at center: ", $TileMapLayer.get_cell_source_id(
 		Vector2i(int(Global.world_center.x / 256), int(Global.world_center.y / 256))
 	))
-
+	for i in range(Global.max_orbs):
+		spawn_orb(
+			get_random_point_in_circle(Global.world_size.x/2-100),
+			Global.orb_colors[randi_range(0,15)],
+			randf_range(0.5,3)
+		)		
+	
 func fill_tilemap_circular():
 	var tile_size = 256
 	var cols = int(Global.world_size.x / tile_size)+15
@@ -61,6 +69,17 @@ func create_border_wall():
 	line.points = points
 	static_body.add_child(line)
 	
-	
+
+func spawn_orb(pos: Vector2, color: Color,size: float) -> void:
+	var s : ColoredSprite = ColoredSprite.instantiate()
+	add_child(s)
+	s.position = pos
+	s.set_color(color)
+	s.scale = Vector2(size, size)
+
+func get_random_point_in_circle(radius):
+	var angle = randf_range(0, TAU)
+	var r = sqrt(randf()) * radius
+	return Vector2(cos(angle), sin(angle)) * r
 	
 	

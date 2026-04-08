@@ -8,6 +8,13 @@ var head
 var current_direction = Vector2.RIGHT
 var turn_speed = 4.5
 
+var xp := 0
+var max_xp := 60
+
+@onready var xp_bar = $Camera2D/ProgressBar  # adjust path!
+@onready var snake_head = $"../../Snake"
+
+
 
 # Create a reference to the part scene
 @export var part_scene: PackedScene  # Assign this in the inspector
@@ -17,6 +24,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	center_screen = screen_size / 2
 	head = get_child(1)
+	xp_bar.max_value = max_xp
 
 func _process(delta):
 	# Calculate target direction
@@ -34,8 +42,14 @@ func _process(delta):
 	
 	move_and_slide()
 		
+func add_xp(amount):
+	xp += amount
 	
-		
+	if (xp >= max_xp):
+		snake_head.add_body_part()
+		xp -= max_xp
+	
+	xp_bar.value = xp
 		
 func _input(event):
 	# Mouse in viewport coordinates.

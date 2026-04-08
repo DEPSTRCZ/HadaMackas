@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cmdvtwi8b07t8"]
+
+[ext_resource type="Script" uid="uid://bawsochi1bggy" path="res://colored_orb.gd" id="1_sbne3"]
+[ext_resource type="Shader" uid="uid://cstep6be3dybw" path="res://Shaders/shimmer.gdshader" id="2_elewd"]
+[ext_resource type="Texture2D" uid="uid://dc33q2a0rqg8i" path="res://Assets/XP sprite.png" id="3_cuc4q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cuc4q"]
+
+[sub_resource type="GDScript" id="GDScript_cuc4q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cuc4q"]
+shader = ExtResource("2_elewd")
+shader_parameter/tint = Color(1, 1, 1, 1)
+shader_parameter/shimmer_speed = 1.5
+shader_parameter/shimmer_width = 0.15
+shader_parameter/shimmer_bright = 0.5
+
+[node name="Area2D" type="Area2D" unique_id=2127150636]
+script = ExtResource("1_sbne3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=701472355]
+shape = SubResource("CircleShape2D_cuc4q")
+script = SubResource("GDScript_cuc4q")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1724884974]
+material = SubResource("ShaderMaterial_cuc4q")
+scale = Vector2(3, 3)
+texture = ExtResource("3_cuc4q")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

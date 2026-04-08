@@ -14,11 +14,19 @@ radius = 62.38
 script = ExtResource("1_olj5u")
 body_part_scene = ExtResource("2_olj5u")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1342920846]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=1342920846 groups=["player"]]
 script = ExtResource("2_2x2sd")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=239886041]
 position = Vector2(1, -2)
+
+[node name="ProgressBar" type="ProgressBar" parent="CharacterBody2D/Camera2D" unique_id=561261262]
+z_index = 100
+offset_left = -575.0
+offset_top = 298.0
+offset_right = -157.0
+offset_bottom = 325.0
+rounded = true
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1410969297]
 z_index = 1
