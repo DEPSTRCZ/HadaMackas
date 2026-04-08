@@ -10,11 +10,11 @@ var max_history_length: int = 1000
 @onready var head: CharacterBody2D = $CharacterBody2D
 
 func _ready():
-	if not head: # dej mi hlavu ;)
+	if not head:
 		push_error("No CharacterBody2D found as child of Snake!")
 		return
 	
-	# Initialize position history with head's starting position
+	#	head.global_position = Global.world_center
 	position_history.append(head.global_position)
 
 func _input(event):
@@ -23,6 +23,7 @@ func _input(event):
 			add_body_part()
 
 func _process(delta):
+	#print(head.position)
 	# Add current head position to history
 	position_history.push_front(head.global_position)
 	

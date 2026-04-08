@@ -12,13 +12,12 @@ var turn_speed = 4.5
 # Create a reference to the part scene
 @export var part_scene: PackedScene  # Assign this in the inspector
 
+# head.gd
 func _ready():
 	screen_size = get_viewport_rect().size
-	center_screen = screen_size/2
+	center_screen = screen_size / 2
 	head = get_child(1)
-	print(head)
-	#self.name = "head"
-	
+
 func _process(delta):
 	# Calculate target direction
 	var target_dir = ((center_screen - get_viewport().get_mouse_position()) / center_screen).normalized()

@@ -19,6 +19,10 @@ run/main_scene="uid://bhwjsxcuokfl2"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Global="*uid://c4btumei5e1ku"
+
 [dotnet]
 
 project/assembly_name="HadaMackas"
