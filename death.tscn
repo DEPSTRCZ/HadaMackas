@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dpalnk04ybihc"]
+
+[ext_resource type="Script" uid="uid://ccf6o45twqt8v" path="res://death.gd" id="1_qemge"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lf77f"]
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_qemge"]
+font_size = 11
+
+[node name="DeathScreen" type="CanvasLayer" unique_id=315821204]
+script = ExtResource("1_qemge")
+
+[node name="Panel" type="Panel" parent="." unique_id=365483859]
+offset_right = 1157.0
+offset_bottom = 646.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=529987292]
+layout_mode = 0
+offset_left = 490.178
+offset_top = 280.0
+offset_right = 653.8231
+offset_bottom = 369.0
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer" unique_id=654444931]
+layout_mode = 2
+text = "You Died!"
+label_settings = SubResource("LabelSettings_lf77f")
+horizontal_alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="Panel/VBoxContainer" unique_id=1531405724]
+layout_mode = 2
+text = "Your final score was: "
+label_settings = SubResource("LabelSettings_qemge")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer" unique_id=620395983]
+layout_mode = 2
+text = "Restart"

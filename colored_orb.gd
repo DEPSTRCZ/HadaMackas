@@ -25,7 +25,6 @@ func get_random_point_in_circle(radius):
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		#print(self.scale,self.scale.
 		body.add_xp(self.scale[0])
 		self.position = get_random_point_in_circle(Global.world_size.x/2-100)
 		self.set_color(Global.orb_colors[randi_range(0,15)])

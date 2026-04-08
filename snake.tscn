@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://m15nubc8j7lm" path="res://head.gd" id="2_2x2sd"]
 [ext_resource type="PackedScene" uid="uid://6q3xwf85i8ha" path="res://body_part.tscn" id="2_olj5u"]
 [ext_resource type="Texture2D" uid="uid://c6sfxfqm8w78j" path="res://Assets/Snake/head.png" id="4_olj5u"]
+[ext_resource type="AudioStream" uid="uid://cr87mvjbvh6lb" path="res://Sounds/death.ogg" id="5_dw1s1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ryrav"]
 resource_local_to_scene = true
@@ -28,6 +29,13 @@ offset_right = -157.0
 offset_bottom = 325.0
 rounded = true
 
+[node name="ScoreLabel" type="Label" parent="CharacterBody2D/Camera2D" unique_id=1528386008]
+offset_left = -572.0
+offset_top = 274.0
+offset_right = -464.0
+offset_bottom = 323.0
+text = "Score: 0"
+
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1410969297]
 z_index = 1
 texture_filter = 1
@@ -39,3 +47,7 @@ texture = ExtResource("4_olj5u")
 position = Vector2(1, -2)
 shape = SubResource("CircleShape2D_ryrav")
 debug_color = Color(0, 0.6, 0.69803923, 1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D" unique_id=1699994449]
+stream = ExtResource("5_dw1s1")
+volume_db = 10.471

@@ -24,3 +24,6 @@ var orb_colors = [
 ]
 
 var max_orbs = 200
+var max_orbs_xp = 30
+
+var score = 0 # Keep zero

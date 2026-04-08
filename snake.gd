@@ -17,11 +17,6 @@ func _ready():
 	#	head.global_position = Global.world_center
 	position_history.append(head.global_position)
 
-func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			add_body_part()
-
 func _process(delta):
 	#print(head.position)
 	# Add current head position to history

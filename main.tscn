@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0713nhueyk77" path="res://Assets/snake_floor_scaled_8x.png" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://bn0ijjr2xnw5x" path="res://play_area.gd" id="1_h2yge"]
 [ext_resource type="PackedScene" uid="uid://x8dltlo3ol3k" path="res://snake.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dpalnk04ybihc" path="res://death.tscn" id="4_1bvp3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
 texture = ExtResource("1_0xm2m")
@@ -269,6 +270,8 @@ tile_size = Vector2i(256, 256)
 sources/0 = SubResource("TileSetAtlasSource_0xm2m")
 
 [node name="Main" type="Node2D" unique_id=848821030]
+
+[node name="DeathScreen" parent="." unique_id=315821204 instance=ExtResource("4_1bvp3")]
 
 [node name="PlayArea" type="Node2D" parent="." unique_id=1200878155]
 script = ExtResource("1_h2yge")

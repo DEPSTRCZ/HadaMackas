@@ -23,6 +23,7 @@ shape = SubResource("CircleShape2D_cuc4q")
 script = SubResource("GDScript_cuc4q")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1724884974]
+texture_filter = 1
 material = SubResource("ShaderMaterial_cuc4q")
 scale = Vector2(3, 3)
 texture = ExtResource("3_cuc4q")

@@ -6,11 +6,6 @@ func _ready():
 	fill_tilemap_circular()
 	create_border_wall()
 	
-	# in play_area.gd _ready(), after fill_tilemap_circular()
-	print("World center: ", Global.world_center)
-	print("Tile at center: ", $TileMapLayer.get_cell_source_id(
-		Vector2i(int(Global.world_center.x / 256), int(Global.world_center.y / 256))
-	))
 	for i in range(Global.max_orbs):
 		spawn_orb(
 			get_random_point_in_circle(Global.world_size.x/2-100),
@@ -54,6 +49,7 @@ func create_border_wall():
 		segment.b = Vector2(cos(angle_b), sin(angle_b)) * radius_px
 		collision.shape = segment
 		static_body.add_child(collision)
+		static_body.add_to_group("border")
 
 	# Visual (colored border)
 	var line = Line2D.new()

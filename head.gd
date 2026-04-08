@@ -1,17 +1,20 @@
 extends CharacterBody2D
 
 @export var speed:int = 400
+@export var death_speed_threshold:float = 50.0  # If speed drops below this, player dies
+
 var screen_size
 var center_screen
 var dir
 var head
 var current_direction = Vector2.RIGHT
 var turn_speed = 4.5
+var is_dead = false
 
-var xp := 0
-var max_xp := 60
+var xp = 0
 
-@onready var xp_bar = $Camera2D/ProgressBar  # adjust path!
+@onready var xp_bar = $Camera2D/ProgressBar
+@onready var score_label = $Camera2D/ScoreLabel  # adjust path!
 @onready var snake_head = $"../../Snake"
 
 
@@ -24,7 +27,7 @@ func _ready():
 	screen_size = get_viewport_rect().size
 	center_screen = screen_size / 2
 	head = get_child(1)
-	xp_bar.max_value = max_xp
+	xp_bar.max_value = Global.max_orbs_xp
 
 func _process(delta):
 	# Calculate target direction
@@ -41,34 +44,38 @@ func _process(delta):
 	head.rotation_degrees = rad_to_deg(atan2(rotated_vector[1], rotated_vector[0]))
 	
 	move_and_slide()
+	# Check collisions
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)  # KinematicCollision2D
+		var collider_obj = collision.get_collider()  # actual object
+		if collider_obj.is_in_group("border"):
+			die()
+
+func die():
+	$AudioStreamPlayer2D.play()
+	
+	
+	if is_dead:
+		return
+	is_dead = true
+
+	# Show death screen
+	var death_screen = get_tree().get_current_scene().get_node("DeathScreen")
+	print(death_screen)
+	if death_screen:
+		death_screen.show_death()
+	
+	# Stop player movement
+	velocity = Vector2.ZERO
+	set_process(false)
 		
 func add_xp(amount):
 	xp += amount
+	Global.score += amount
 	
-	if (xp >= max_xp):
+	if (xp >= Global.max_orbs_xp):
 		snake_head.add_body_part()
-		xp -= max_xp
+		xp -= Global.max_orbs_xp
 	
 	xp_bar.value = xp
-		
-func _input(event):
-	# Mouse in viewport coordinates.
-	if event is InputEventMouseButton:
-		print("Mouse Click/Unclick at: ", event.position)
-		
-		#self.add_child(part)
-	
-		#spawn_new_part()
-
-#func spawn_new_part():
-#	var original_part = $part
-#	print("Original part script: ", original_part.get_script())
-	
-#	var new_part = original_part.duplicate(DUPLICATE_USE_INSTANTIATION | DUPLICATE_SCRIPTS)
-#	print("New part script: ", new_part.get_script())
-#	print("New part has initialize: ", new_part.has_method("initialize"))
-	
-#	new_part.position = self.position
-#	add_child(new_part)
-	
-#	print("New part spawned at index: ", new_part.get_index())
+	score_label.text = "Score: %.2f" % Global.score
