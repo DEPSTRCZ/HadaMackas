@@ -68,6 +68,7 @@ func die():
 	# Stop player movement
 	velocity = Vector2.ZERO
 	set_process(false)
+	Global.score = 0
 		
 func add_xp(amount):
 	$ConsumePlayer.play()
