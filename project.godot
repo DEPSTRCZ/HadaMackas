@@ -23,6 +23,10 @@ config/icon="res://icon.svg"
 
 Global="*uid://c4btumei5e1ku"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="HadaMackas"
